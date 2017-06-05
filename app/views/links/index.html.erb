@@ -1,0 +1,7 @@
+<h1>Hot Reads</h1>
+
+<ol class="hot-reads">
+  <% @links.each do |link| %>
+    <li class="hot-read" id="<%= link.id %>"> <%= link.url %></li>
+  <% end %>
+</ol>
