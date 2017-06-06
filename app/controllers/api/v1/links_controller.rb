@@ -1,5 +1,7 @@
 class Api::V1::LinksController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def create
     @link = Link.new(link_params)
       if @link.save
@@ -18,9 +20,13 @@ class Api::V1::LinksController < ApplicationController
     end
   end
 
+  def add_count
+    
+  end
+
   private
 
   def link_params
-    params.permit(:url, :count)
+    params.permit(:url)
   end
 end
