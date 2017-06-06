@@ -24,10 +24,13 @@ module HotReads
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => 'https://m4-macaulay-final.herokuapp.com',
-        'Access-Control-Request-Method' => %w{POST PATCH OPTIONS}.join(",")
-      }
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:patch, :post, :options]
+      end
+    end
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
