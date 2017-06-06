@@ -26,7 +26,6 @@ module HotReads
     # -- all .rb files in that directory are automatically loaded.
     config.action_dispatch.default_headers = {
         'Access-Control-Allow-Origin' => 'http://localhost:3000/',
-        'Access-Control-Allow-Origin' => 'https://m4-macaulay-final.herokuapp.com',
         'Access-Control-Request-Method' => %w{PATCH POST OPTIONS}.join(",")
       }
     # Don't generate system test files.
